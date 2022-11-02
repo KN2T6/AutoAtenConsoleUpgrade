@@ -8,7 +8,8 @@
 
 ## Logs
    * ver 1.0
-     - 開發中
+     - 開發中 
+     - 初步能動
 
 ## Useage
     #Init for Virtual Env 建立虛擬環境。

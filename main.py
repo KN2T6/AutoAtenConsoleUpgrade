@@ -2,8 +2,11 @@
 import joe_def_v2 as sw
 from time import sleep
 
+# Init PythonConfigParser via Config.ini
 
+# Init IP List and Loop it.
 
+# Init Driver and Login.
 try:
     guw = sw.GetUniWebdriver()
     driver = guw.windows()
@@ -13,12 +16,18 @@ try:
     sw.input(driver, "name", "login_password", "P@ssw0rd")
     sw.click(driver, "id", "B_LOGIN")
 
+# Click Diag Box.
     try:
         sw.click(driver, "id", "DialogCmdOK")
         sleep(5)
     except:
         print("error")
 
+# Check Firmware Version.
+
+# Firmware Version less then Target , Upgrade it !
+
+# Switch to Firmware Page
     sw.click(driver, "id", "LM_MAINTENANCE")
     sw.click(driver, "id", "LMS_UPGRADE")
     sw.click(driver, "name", "CheckVersion")
@@ -39,3 +48,5 @@ except:
     sleep(10)
     driver.quit()
     raise
+
+# Loop IP List Again for Checking version is match.
