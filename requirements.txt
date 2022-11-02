@@ -1,0 +1,10 @@
+requests
+
+colorama
+
+pyinstaller
+
+selenium
+chromedriver_autoinstaller
+webdriver_manager
+
