@@ -20,7 +20,8 @@ class GetUniWebdriver():
     def __init__(self):
         self.options = Options()
         self.options.add_argument("--no-sandbox")
-        self.options.add_argument("--headless")
+        #self.options.add_argument("--headless")
+        self.options.add_argument("--ignore-certificate-errors")
         #關閉INFO:CONSOLE
         self.options.add_experimental_option("excludeSwitches", ["enable-logging"])
     def darwin(self):
@@ -54,11 +55,7 @@ def login(driver, url):
 
 
 from datetime import datetime
-from xlrd import xldate_as_tuple
-def execl_data_to_Str(vaule):
-    date = datetime(*xldate_as_tuple(vaule, 0))
-    cell = date.strftime('%Y/%m/%d')
-    return (cell)
+
 
 def lineNotify(token, msg):
     headers = {
@@ -89,6 +86,10 @@ def input(driver, source_type, path, txt):
         driver.find_element(By.ID, path).send_keys(txt)
     elif source_type == 'xpath':
         driver.find_element(By.XPATH, path).send_keys(txt)
+    elif source_type == 'name':
+        driver.find_element(By.NAME, path).send_keys(txt)
+    elif source_type == 'id':
+        driver.find_element(By.ID, path).send_keys(txt)
 
 
 def click(driver, source_type, path):
