@@ -24,6 +24,23 @@ try:
         print("error")
 
 # Check Firmware Version.
+    try:
+        # Get source Alert Message.
+        sw.click(driver, "id", "IM_ABOUT")
+        alert = driver.switch_to.alert.text
+
+        # Split it.
+        alert_split = driver.switch_to.alert.text.split(' ', 4)
+
+        sed = alert_split[2].split('\n', 1)
+        version = sed[0]
+
+        driver.switch_to.alert.accept()
+
+        print("Version : " + sw.col_yellow() + version + sw.col_def())
+
+    except:
+        raise
 
 # Firmware Version less then Target , Upgrade it !
 
@@ -37,6 +54,7 @@ try:
     #chooseFile = sw.find_ele(driver, "xpath", "/html/body/div[3]/div[3]/div[1]/div[36]/div/form/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/input")
     #chooseFile.click()
     #chooseFile.send_keys("SN01_SN91xx_V1.7.167.003.fw")
+
     sw.input(driver, "name", "FirmwareFile", "N:\Firmware\ATEN\SN01_SN91xx_V1.7.167.003.fw")
     sw.click(driver, "xpath", "//div[@id='CMD_UPGRADE']/input")
 
