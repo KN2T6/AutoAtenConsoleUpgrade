@@ -11,6 +11,9 @@
      - 開發中 
      - 初步能動
 
+## Example :
+![Info](./img/info.png "Pic1")
+
 ## Useage
     #Init for Virtual Env 建立虛擬環境。
     virtualenv venv
