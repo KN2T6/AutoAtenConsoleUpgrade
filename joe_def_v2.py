@@ -15,6 +15,8 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
 import requests
 import chromedriver_autoinstaller
+from os import system as console
+import sys
 
 class GetUniWebdriver():
     def __init__(self):
@@ -47,6 +49,17 @@ class GetUniWebdriver():
         driver = webdriver.Chrome()
         driver.implicitly_wait(5)
         return driver
+
+def pause_exit1():
+    console("")
+    print("Press Any Key To Exit")
+    console("pause>NUL&exit")
+    sys.exit(1)
+def pause_exit0():
+    console("")
+    print("Press Any Key To Exit")
+    console("pause>NUL&exit")
+    sys.exit(0)
 
 def login(driver, url):
     driver.get(url)
@@ -156,3 +169,4 @@ def col_yellow():return '\033[33m'
 def col_yellow_down():return '\033[33m'
 def col_pu():return '\033[35m'
 def col_def():return '\033[0m'
+
