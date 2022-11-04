@@ -43,6 +43,9 @@ try:
     driver = guw.windows()
     sw.login(driver, "https://192.168.92.101/")
 
+    Hostname = sw.gettext(driver, "xpath", "//*[@id='contentlayer']/div/form/table/tbody/tr/td/div[2]")
+    print("Connection Successful, Hostname = "+ sw.col_yellow() + Hostname + sw.col_def(), end=', ')
+
     sw.input(driver, "name", "login_username", aten_account)
     sw.input(driver, "name", "login_password", aten_password)
     sw.click(driver, "id", "B_LOGIN")
@@ -65,7 +68,7 @@ try:
         sed = alert_split[2].split('\n', 1)
         version = sed[0]
         driver.switch_to.alert.accept()
-        print("Version : " + sw.col_yellow() + version + sw.col_def())
+        print("Version = " + sw.col_yellow() + version + sw.col_def())
 
 
     except Exception:

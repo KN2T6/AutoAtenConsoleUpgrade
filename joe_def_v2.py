@@ -35,9 +35,7 @@ class GetUniWebdriver():
         driver.implicitly_wait(5)
         return driver
     def windows(self):
-        print("下載 Chrome 自動化套件中，檔案有點大，忍耐一下。")
         chromedriver_autoinstaller.install(cwd=True)
-        print("下載完成。")
         driver = webdriver.Chrome(options=self.options)
         #driver = webdriver.Chrome()
         driver.implicitly_wait(5)
@@ -63,7 +61,6 @@ def pause_exit0():
 
 def login(driver, url):
     driver.get(url)
-    print("成功連結上 : " + driver.title)  # 印出title
     driver.set_window_size(1200, 600)
 
 
