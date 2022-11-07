@@ -17,6 +17,9 @@ import requests
 import chromedriver_autoinstaller
 from os import system as console
 import sys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class GetUniWebdriver():
     def __init__(self):
@@ -134,6 +137,13 @@ def find_ele(driver, source_type, path):
     elif source_type == 'css':
         driver.find_element(By.CSS_SELECTOR, path)
 
+
+def wait_until(driver, source_type, path):
+    if source_type == 'id':
+        ele = WebDriverWait(driver, 60, 1).until(EC.visibility_of_element_located((By.ID, path)))
+        gettext = ele.text
+
+    return gettext
 
 def select(driver, source_type, path, txt):
     if source_type == 'id':
